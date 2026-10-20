@@ -1,0 +1,254 @@
+/* Kira Concierge — Hi-Fi Design Tokens
+   One typographic voice (Vazirmatn, Latin+Arabic) across guest/staff/admin.
+   Color named after hotel materials (brass, lantern, lagoon, sand) not generic UI hues. */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Color */
+  --dusk-ink: #15201f;
+  --dusk-ink-2: #1c2a28;
+  --sand: #ede6d8;
+  --sand-2: #e3dac8;
+  --paper: #faf8f3;
+  --brass: #b8923f;
+  --brass-deep: #8f6b22;
+  --brass-soft: #d9b86a;
+  --lagoon: #2f4858;
+  --lagoon-deep: #1f323d;
+  --ink-on-sand: #241f16;
+  --ink-on-dark: #f4efe3;
+  --muted-on-dark: #9fb0ab;
+  --muted-on-sand: #6b6354;
+
+  --ok: #5b7a63;
+  --warn: #a67c3d;
+  --err: #8b4a3d;
+
+  /* Type */
+  --font: 'Vazirmatn', 'Noto Sans Arabic', sans-serif;
+  --fs-display: clamp(2rem, 4vw, 3rem);
+  --fs-h1: 1.5rem;
+  --fs-h2: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.8125rem;
+  --lh-body: 1.55;
+
+  /* Shape — radius encodes guest (soft) vs tool (tight) hierarchy */
+  --radius-guest: 28px;
+  --radius-guest-sm: 16px;
+  --radius-tool: 6px;
+  --radius-tool-sm: 4px;
+
+  /* Spacing */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: var(--font);
+  margin: 0;
+  color: var(--ink-on-sand);
+  background: var(--paper);
+  line-height: var(--lh-body);
+}
+h1, h2, h3, p { margin: 0; }
+
+/* ---------- Mockup page chrome (not part of the product UI) ---------- */
+.page-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-5) var(--sp-4);
+}
+.page-header h1 { font-size: var(--fs-h1); font-weight: 700; }
+.page-header p { color: var(--muted-on-sand); margin-top: var(--sp-2); max-width: 640px; }
+.flow-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5) var(--sp-5);
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  font-size: var(--fs-small);
+}
+.flow-nav a { color: var(--lagoon); text-decoration: none; border-bottom: 1px solid transparent; }
+.flow-nav a:hover { border-bottom-color: var(--brass); }
+.flow-nav a.current { color: var(--brass-deep); font-weight: 600; }
+.screen-block {
+  max-width: 1100px;
+  margin: 0 auto var(--sp-7);
+  padding: 0 var(--sp-5);
+}
+.screen-block h2 { font-size: var(--fs-h2); font-weight: 600; margin-bottom: var(--sp-4); }
+.state-note {
+  max-width: 560px;
+  margin-top: var(--sp-3);
+  font-size: var(--fs-small);
+  color: var(--muted-on-sand);
+}
+.state-note a { color: var(--lagoon); }
+
+/* ---------- Guest tablet frame ---------- */
+.tablet-frame {
+  width: 760px;
+  max-width: 100%;
+  aspect-ratio: 16/10;
+  background: radial-gradient(ellipse at 50% 30%, var(--dusk-ink-2), var(--dusk-ink) 70%);
+  border-radius: var(--radius-guest);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--ink-on-dark);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,.5);
+}
+/* mashrabiya lattice texture — faint repeating line pattern, not illustration */
+.tablet-frame::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(60deg, rgba(217,184,106,.05) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-60deg, rgba(217,184,106,.05) 0 1px, transparent 1px 28px);
+  pointer-events: none;
+}
+.tablet-topbar {
+  position: relative; z-index: 1;
+  width: 100%;
+  display: flex; justify-content: space-between;
+  padding: var(--sp-4) var(--sp-5);
+  font-size: var(--fs-small);
+  color: var(--muted-on-dark);
+}
+.tablet-body {
+  position: relative; z-index: 1;
+  flex: 1; width: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  text-align: center;
+}
+
+/* ---------- The Lantern (avatar) ---------- */
+.lantern-wrap { width: 108px; height: 140px; position: relative; }
+.lantern-glow {
+  position: absolute; inset: -40px;
+  background: radial-gradient(circle, rgba(217,184,106,.35), transparent 65%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.lantern-svg { position: relative; width: 100%; height: 100%; }
+.lantern-ring {
+  position: absolute; left: 50%; top: 50%;
+  width: 108px; height: 108px;
+  border: 1px solid rgba(217,184,106,.5);
+  border-radius: 50%;
+  transform: translate(-50%,-50%) scale(1);
+  opacity: 0;
+}
+
+@keyframes breathe { 0%,100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.04); opacity: 1; } }
+@keyframes pop { 0% { transform: scale(.9); opacity: .6; } 60% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes listen-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes ripple { 0% { transform: translate(-50%,-50%) scale(.9); opacity: .6; } 100% { transform: translate(-50%,-50%) scale(1.6); opacity: 0; } }
+@keyframes think-drift { 0%,100% { filter: hue-rotate(0deg) brightness(1); } 50% { filter: hue-rotate(8deg) brightness(1.1); } }
+@keyframes talk { 0%,100% { transform: scaleY(1); } 25% { transform: scaleY(.92); } 50% { transform: scaleY(1.05); } 75% { transform: scaleY(.96); } }
+
+.state-idle .lantern-svg { animation: breathe 4s ease-in-out infinite; }
+.state-wake .lantern-svg { animation: pop .5s ease-out; }
+.state-listening .lantern-svg { animation: listen-pulse 1.1s ease-in-out infinite; }
+.state-listening .lantern-ring { animation: ripple 1.6s ease-out infinite; }
+.state-thinking .lantern-svg { animation: think-drift 2.2s ease-in-out infinite; }
+.state-speaking .lantern-svg { animation: talk 0.9s ease-in-out infinite; }
+
+.avatar-caption { font-size: var(--fs-small); color: var(--muted-on-dark); letter-spacing: .01em; }
+.avatar-greeting { font-size: var(--fs-display); font-weight: 800; }
+.avatar-sub { color: var(--muted-on-dark); font-size: var(--fs-body); }
+
+/* ---------- Guest UI components ---------- */
+.btn {
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: var(--radius-guest-sm);
+}
+.btn-brass { background: var(--brass); color: #211704; }
+.btn-brass:hover { background: var(--brass-soft); }
+.btn-ghost-dark { background: transparent; color: var(--ink-on-dark); border: 1px solid rgba(244,239,227,.3); }
+
+.guest-card {
+  position: relative; z-index: 1;
+  background: rgba(250,248,243,.06);
+  border: 1px solid rgba(217,184,106,.25);
+  border-radius: var(--radius-guest-sm);
+  padding: var(--sp-4);
+  width: 100%;
+  max-width: 420px;
+  text-align: left;
+}
+.menu-item { display: flex; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-3) 0; border-bottom: 1px solid rgba(244,239,227,.08); }
+.menu-item:last-child { border-bottom: none; }
+.menu-item-name { font-weight: 600; }
+.menu-item-tag { font-size: var(--fs-small); color: var(--muted-on-dark); }
+.menu-item-price { font-weight: 600; color: var(--brass-soft); white-space: nowrap; }
+
+.order-total-row { display: flex; justify-content: space-between; padding-top: var(--sp-3); margin-top: var(--sp-2); border-top: 1px solid rgba(217,184,106,.3); font-weight: 700; }
+
+/* Status stepper — guest side, warm not clinical */
+.g-stepper { display: flex; align-items: center; width: 100%; max-width: 420px; }
+.g-step { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); flex: 1; }
+.g-dot { width: 14px; height: 14px; border-radius: 50%; background: rgba(244,239,227,.2); border: 1px solid rgba(244,239,227,.3); }
+.g-dot.done { background: var(--brass); border-color: var(--brass); }
+.g-dot.active { background: var(--dusk-ink); border: 2px solid var(--brass); box-shadow: 0 0 0 4px rgba(184,146,63,.2); }
+.g-line { flex: 1; height: 1px; background: rgba(244,239,227,.2); margin-bottom: 22px; }
+.g-line.done { background: var(--brass); }
+.g-label { font-size: var(--fs-small); color: var(--muted-on-dark); text-align: center; }
+.g-label.active { color: var(--ink-on-dark); font-weight: 600; }
+
+/* ---------- Staff / Admin shared shell (light, tool-like, tighter radius) ---------- */
+.tool-frame {
+  width: 100%; max-width: 980px;
+  background: var(--sand);
+  border: 1px solid rgba(36,31,22,.1);
+  border-radius: var(--radius-tool);
+  display: flex;
+  min-height: 560px;
+  overflow: hidden;
+}
+.tool-sidebar {
+  width: 200px;
+  background: var(--lagoon-deep);
+  color: var(--ink-on-dark);
+  padding: var(--sp-4);
+}
+.tool-sidebar .brand { font-weight: 700; margin-bottom: var(--sp-5); font-size: var(--fs-small); color: var(--brass-soft); letter-spacing: .02em; }
+.tool-link { display: block; padding: var(--sp-2) var(--sp-3); border-radius: var(--radius-tool-sm); color: rgba(244,239,227,.75); font-size: var(--fs-small); margin-bottom: 2px; }
+.tool-link.active { background: rgba(184,146,63,.18); color: var(--brass-soft); font-weight: 600; }
+.tool-main { flex: 1; display: flex; flex-direction: column; background: var(--paper); }
+.tool-topbar { padding: var(--sp-3) var(--sp-5); border-bottom: 1px solid rgba(36,31,22,.08); display: flex; justify-content: space-between; font-size: var(--fs-small); color: var(--muted-on-sand); }
+.tool-content { padding: var(--sp-5); flex: 1; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); }
+.data-table th { text-align: left; font-weight: 600; color: var(--muted-on-sand); padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid rgba(36,31,22,.12); }
+.data-table td { padding: var(--sp-3); border-bottom: 1px solid rgba(36,31,22,.06); }
+.badge { display: inline-block; padding: 2px 10px; border-radius: var(--radius-tool-sm); font-size: 12px; font-weight: 600; }
+.badge-ok { background: rgba(91,122,99,.15); color: var(--ok); }
+.badge-warn { background: rgba(166,124,61,.15); color: var(--warn); }
+.badge-err { background: rgba(139,74,61,.15); color: var(--err); }
+
+.btn-tool { font-family: var(--font); font-weight: 600; font-size: var(--fs-small); border: none; cursor: pointer; padding: 8px 16px; border-radius: var(--radius-tool-sm); }
+.btn-tool-primary { background: var(--brass); color: #211704; }
+.btn-tool-secondary { background: transparent; border: 1px solid rgba(36,31,22,.2); color: var(--ink-on-sand); }
+
+.ticket-card { background: var(--paper); border: 1px solid rgba(36,31,22,.1); border-radius: var(--radius-tool); padding: var(--sp-3); margin-bottom: var(--sp-3); }
+.ticket-room { font-weight: 700; font-size: var(--fs-small); }
+.ticket-meta { font-size: 12px; color: var(--muted-on-sand); margin-top: 2px; }

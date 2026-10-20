@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Hi-Fi Mockup: Dining</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  .gallery-row { display: flex; gap: var(--sp-6); flex-wrap: wrap; align-items: flex-start; }
+  .gallery-cell { background: var(--dusk-ink); border-radius: var(--radius-guest); padding: var(--sp-5); width: 160px; text-align: center; }
+  .gallery-cell .lantern-wrap { width: 72px; height: 96px; margin: 0 auto var(--sp-3); }
+  .gallery-cell .lantern-ring { width: 72px; height: 72px; }
+  .gallery-cell .avatar-caption { color: var(--ink-on-dark); font-weight: 600; }
+  .gallery-cell p { font-size: 12px; color: var(--muted-on-dark); margin-top: var(--sp-1); }
+  .subtitle-bar { position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 2;
+    background: rgba(0,0,0,.35); padding: 6px 16px; border-radius: 999px; font-size: var(--fs-small); max-width: 80%; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="page-header">
+    <h1>Hi-fi mockup — design pass 1</h1>
+    <p>Guest tablet, dining flow. Token system: <code>../tokens.css</code>. Review this before the remaining 10 screens get converted — flag anything to change before it propagates everywhere.</p>
+  </div>
+  <nav class="flow-nav">
+    <a href="dining.html" class="current">Dining (this file)</a>
+    <span style="color:var(--muted-on-sand)">· housekeeping, checkout, valet, staff &amp; admin apps to follow once direction is confirmed</span>
+  </nav>
+
+  <!-- Avatar state gallery -->
+  <section class="screen-block">
+    <h2>The Lantern — avatar states</h2>
+    <div class="gallery-row">
+      <div class="gallery-cell state-idle">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#g1)"/>
+            <defs><radialGradient id="g1"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="avatar-caption">Idle</div>
+        <p>Slow breathing pulse</p>
+      </div>
+      <div class="gallery-cell state-wake">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.16)" stroke="#d9b86a" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="22" fill="url(#g2)"/>
+            <defs><radialGradient id="g2"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#eac97a" stop-opacity=".9"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="avatar-caption">Wake</div>
+        <p>Quick brighten + pop</p>
+      </div>
+      <div class="gallery-cell state-listening">
+        <div class="lantern-wrap">
+          <div class="lantern-ring"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#g3)"/>
+            <defs><radialGradient id="g3"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="avatar-caption">Listening</div>
+        <p>Tight pulse + sound ripple</p>
+      </div>
+      <div class="gallery-cell state-thinking">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#g4)"/>
+            <defs><radialGradient id="g4"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="avatar-caption">Thinking</div>
+        <p>Slow colour drift, never frozen</p>
+      </div>
+      <div class="gallery-cell state-speaking">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#g5)"/>
+            <defs><radialGradient id="g5"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="avatar-caption">Speaking</div>
+        <p>Rhythmic pulse, no lip-sync needed</p>
+      </div>
+    </div>
+    <p class="state-note">Form: an abstracted hanging lantern, not a face or a generic glowing orb — ties the one AI-native element in the room to the hospitality material language around it. Final art commissioned per the avatar design brief; this is motion/placement proof, not final linework.</p>
+  </section>
+
+  <!-- Screen 1: Idle -->
+  <section class="screen-block">
+    <h2>1. Idle</h2>
+    <div class="tablet-frame">
+      <div class="tablet-topbar"><span>Room 412</span><span>9:41 PM · 24°C, clear</span></div>
+      <div class="tablet-body state-idle">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#gi)"/>
+            <defs><radialGradient id="gi"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <p class="avatar-sub">Hey Kira, or tap to begin</p>
+      </div>
+    </div>
+    <p class="state-note">Centre-aligned, dark, mostly empty — this is a bedside object at night, not a dashboard. The lattice texture behind the lantern is a 4% line pattern, visible only on close inspection.</p>
+  </section>
+
+  <!-- Screen 2: Menu browse -->
+  <section class="screen-block">
+    <h2>2. Menu browse</h2>
+    <div class="tablet-frame" style="position:relative;">
+      <div class="tablet-topbar"><span>Room 412</span><span>In-room dining</span></div>
+      <div class="tablet-body state-listening">
+        <div class="subtitle-bar">"two burgers and a coke please"</div>
+        <div class="guest-card">
+          <div class="menu-item">
+            <div><div class="menu-item-name">Wagyu smash burger</div><div class="menu-item-tag">contains gluten, dairy</div></div>
+            <div class="menu-item-price">AED 68</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item-name">Chicken shawarma plate</div><div class="menu-item-tag">contains gluten</div></div>
+            <div class="menu-item-price">AED 54</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item-name">Soft drink</div><div class="menu-item-tag">Coke, Sprite, Fanta</div></div>
+            <div class="menu-item-price">AED 18</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="state-note">Listening state shown with the ripple cue — guest is mid-sentence. Cart build is voice or tap; both update the same card live (touch parity).</p>
+  </section>
+
+  <!-- Screen 3: Order summary / confirm -->
+  <section class="screen-block">
+    <h2>3. Order summary — confirm</h2>
+    <div class="tablet-frame">
+      <div class="tablet-topbar"><span>Room 412</span><span>Review your order</span></div>
+      <div class="tablet-body state-speaking">
+        <div class="lantern-wrap">
+          <div class="lantern-glow"></div>
+          <svg class="lantern-svg" viewBox="0 0 108 140">
+            <circle cx="54" cy="10" r="4" fill="#d9b86a"/>
+            <polygon points="24,34 84,34 94,70 84,106 24,106 14,70" fill="rgba(217,184,106,.12)" stroke="#b8923f" stroke-width="2"/>
+            <polygon points="40,106 68,106 64,120 44,120" fill="rgba(217,184,106,.2)" stroke="#b8923f" stroke-width="1.5"/>
+            <circle cx="54" cy="70" r="20" fill="url(#gs)"/>
+            <defs><radialGradient id="gs"><stop offset="0%" stop-color="#fff3d6"/><stop offset="60%" stop-color="#d9b86a" stop-opacity=".8"/><stop offset="100%" stop-color="#b8923f" stop-opacity="0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="guest-card">
+          <div class="menu-item"><div class="menu-item-name">2× Wagyu smash burger</div><div class="menu-item-price">AED 136</div></div>
+          <div class="menu-item"><div class="menu-item-name">1× Soft drink</div><div class="menu-item-price">AED 18</div></div>
+          <div class="order-total-row"><span>Total</span><span>AED 154.00</span></div>
+        </div>
+        <div style="display:flex; gap: var(--sp-3);">
+          <button class="btn btn-ghost-dark">Change order</button>
+          <button class="btn btn-brass">Confirm &amp; send to kitchen</button>
+        </div>
+      </div>
+    </div>
+    <p class="state-note">Confirm is the chargeable step — explicit tap or voice "yes" required either way, backed by a server-issued <code>confirmation_token</code> so a touch guest and a voice guest hit the exact same contract.</p>
+  </section>
+
+  <!-- Screen 4: Status track -->
+  <section class="screen-block">
+    <h2>4. Status track</h2>
+    <div class="tablet-frame">
+      <div class="tablet-topbar"><span>Room 412</span><span>Order #4821</span></div>
+      <div class="tablet-body state-idle">
+        <p class="avatar-sub" style="margin-bottom: var(--sp-2);">Your order is being prepared</p>
+        <div class="g-stepper">
+          <div class="g-step"><div class="g-dot done"></div><div class="g-label">Accepted</div></div>
+          <div class="g-line done"></div>
+          <div class="g-step"><div class="g-dot active"></div><div class="g-label active">Preparing</div></div>
+          <div class="g-line"></div>
+          <div class="g-step"><div class="g-dot"></div><div class="g-label">Ready</div></div>
+          <div class="g-line"></div>
+          <div class="g-step"><div class="g-dot"></div><div class="g-label">Delivered</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="state-note">Brass fill = done, brass ring = active, hollow = pending. Same stepper component reused for housekeeping, valet, and checkout-extension status tracks.</p>
+  </section>
+</body>
+</html>

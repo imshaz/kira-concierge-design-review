@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Design Review</title>
+<link rel="stylesheet" href="mockups/tokens.css">
+<style>
+  body { background: var(--sand); }
+  .hero { max-width: 760px; margin: 0 auto; padding: var(--sp-7) var(--sp-5) var(--sp-5); }
+  .hero h1 { font-size: var(--fs-display); font-weight: 800; margin-bottom: var(--sp-3); }
+  .hero p { color: var(--muted-on-sand); max-width: 560px; }
+  .cards { max-width: 760px; margin: 0 auto; padding: 0 var(--sp-5) var(--sp-7); display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card { background: var(--paper); border: 1px solid rgba(36,31,22,.1); border-radius: var(--radius-tool); padding: var(--sp-5); text-decoration: none; color: var(--ink-on-sand); display: block; }
+  .card:hover { border-color: var(--brass); }
+  .card .tag { font-size: var(--fs-small); color: var(--brass-deep); font-weight: 600; margin-bottom: var(--sp-2); }
+  .card h2 { font-size: var(--fs-h2); margin-bottom: var(--sp-2); }
+  .card p { color: var(--muted-on-sand); font-size: var(--fs-small); margin: 0; }
+  .note { max-width: 760px; margin: 0 auto; padding: 0 var(--sp-5) var(--sp-7); font-size: var(--fs-small); color: var(--muted-on-sand); }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Kira Concierge</h1>
+    <p>In-room AI guest services platform — design review. Two stages so far: a full low-fidelity flow inventory across guest, staff, and admin surfaces, and a first hi-fi visual pass on the dining flow.</p>
+  </div>
+  <div class="cards">
+    <a class="card" href="wireframes/index.html">
+      <div class="tag">Stage 1 — complete</div>
+      <h2>Low-fi wireframes</h2>
+      <p>Every screen: guest tablet (dining, housekeeping, checkout extension, valet), 5 staff apps, and the admin dashboard.</p>
+    </a>
+    <a class="card" href="mockups/html/dining.html">
+      <div class="tag">Stage 2 — in progress</div>
+      <h2>Hi-fi mockup — dining flow</h2>
+      <p>First visual design pass: the Lantern avatar, brass/ink/sand palette, bilingual Arabic/Latin typography.</p>
+    </a>
+    <a class="card" href="avatar-brief.html">
+      <div class="tag">Reference</div>
+      <h2>Avatar design brief</h2>
+      <p>What the Kira avatar needs to express, and the visual/technical direction it's being designed against.</p>
+    </a>
+  </div>
+  <p class="note">Static design reference for review — no backend or live data behind these pages.</p>
+</body>
+</html>

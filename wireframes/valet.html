@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Valet Wireframes</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1>Valet — Guest Tablet Flow</h1>
+    <p>Shortest pilot flow — single confirm, no payment.</p>
+  </div>
+  <nav class="flow-nav">
+    <a href="index.html">All flows</a>
+    <a href="dining.html">Dining</a>
+    <a href="housekeeping.html">Housekeeping</a>
+    <a href="checkout-extension.html">Checkout extension</a>
+    <a href="valet.html" class="current">Valet</a>
+    <a href="staff-concierge-valet.html">Staff: Concierge &amp; Valet</a>
+    <a href="admin-dashboard.html">Admin Dashboard</a>
+  </nav>
+
+  <!-- Screen 1: Request + confirm -->
+  <section class="screen-block">
+    <h2>1. Request + confirm</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Valet request</h3>
+        <div class="field-row">
+          <span class="label">Your vehicle</span>
+          <span class="value">Toyota Camry — plate ABC 123</span>
+        </div>
+        <div class="btn-row center">
+          <button class="btn btn-primary">✅ Bring my car</button>
+        </div>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Want me to call for your car now?"</span>
+      </div>
+    </div>
+    <p class="state-note">Vehicle info pulled from guest/PMS record if known; falls back to a plain confirm with no vehicle line if not on file.</p>
+  </section>
+
+  <!-- Screen 2: Status track -->
+  <section class="screen-block">
+    <h2>2. Status track (Received → Bringing car → Ready at entrance)</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Valet #V-57</h3>
+        <div class="stepper">
+          <div class="step-circle done"></div>
+          <div class="step-connector done"></div>
+          <div class="step-circle"></div>
+          <div class="step-connector"></div>
+          <div class="step-circle"></div>
+        </div>
+        <div class="step-labels">
+          <span>Received</span><span>Bringing car</span><span>Ready at entrance</span>
+        </div>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Your car's being brought around now."</span>
+      </div>
+    </div>
+    <p class="state-note">"Ready at entrance" step triggers the guest notification per the flow inventory.</p>
+  </section>
+</body>
+</html>

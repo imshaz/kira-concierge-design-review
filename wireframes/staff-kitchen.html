@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Kitchen Staff Wireframes</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1>Staff App — Kitchen</h1>
+    <p>Kitchen display screen (KDS-style). Tickets also auto-print on the kitchen printer per the spec — this screen is the optional on-screen queue.</p>
+  </div>
+  <nav class="flow-nav">
+    <a href="index.html">All flows</a>
+    <a href="staff-kitchen.html" class="current">Kitchen</a>
+    <a href="staff-housekeeping.html">Housekeeping</a>
+    <a href="staff-waiter.html">Waiter</a>
+    <a href="staff-concierge-valet.html">Concierge &amp; Valet</a>
+    <a href="staff-front-desk.html">Front Desk</a>
+    <a href="admin-dashboard.html">Admin Dashboard</a>
+  </nav>
+
+  <!-- Screen 1: Queue (Kanban) -->
+  <section class="screen-block">
+    <h2>1. Order queue — Incoming / Preparing / Ready</h2>
+    <div class="desktop-frame">
+      <div class="desktop-main">
+        <div class="desktop-topbar">
+          <span>Kitchen — Dining</span>
+          <span>Shift: Ahmed R. · 🔔 2</span>
+        </div>
+        <div class="desktop-content">
+          <div class="kanban">
+            <div class="kanban-col">
+              <h4>Incoming <span class="count">(2)</span></h4>
+              <div class="ticket-card urgent">
+                <div class="ticket-top"><span>Room 412 · #4821</span><span class="sla-badge warn">4 min</span></div>
+                <div class="ticket-items">1x Burger (no onion), 1x Coke</div>
+                <div class="ticket-note">Note: guest wrote in Urdu — translated above</div>
+              </div>
+              <div class="ticket-card">
+                <div class="ticket-top"><span>Room 208 · #4822</span><span class="sla-badge ok">12 min</span></div>
+                <div class="ticket-items">2x Pasta</div>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Preparing <span class="count">(1)</span></h4>
+              <div class="ticket-card">
+                <div class="ticket-top"><span>Room 115 · #4819</span><span class="sla-badge ok">6 min</span></div>
+                <div class="ticket-items">1x Soup, 1x Salad ⚠ nuts</div>
+              </div>
+            </div>
+            <div class="kanban-col">
+              <h4>Ready <span class="count">(1)</span></h4>
+              <div class="ticket-card">
+                <div class="ticket-top"><span>Room 301 · #4815</span><span class="sla-badge ok">waiting for pickup</span></div>
+                <div class="ticket-items">1x Burger</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="state-note">Tapping a ticket opens the detail panel (screen 2). SLA badge turns from ok → warn as the time budget runs down; colour only, no alarming animation.</p>
+  </section>
+
+  <!-- Screen 2: Ticket detail -->
+  <section class="screen-block">
+    <h2>2. Ticket detail → Mark ready</h2>
+    <div class="desktop-frame">
+      <div class="desktop-main">
+        <div class="desktop-topbar">
+          <span>Kitchen — Dining</span>
+          <span>Shift: Ahmed R. · 🔔 2</span>
+        </div>
+        <div class="desktop-content">
+          <p class="panel-title">Order #4821 — Room 412</p>
+          <div class="form-row"><label>Items</label><span>1x Burger (no onion), 1x Coke</span></div>
+          <div class="form-row"><label>Allergens</label><span>None flagged</span></div>
+          <div class="form-row"><label>Delivery note</label><span>"Please knock softly, baby sleeping" (translated from Urdu)</span></div>
+          <div class="form-row"><label>SLA</label><span class="sla-badge warn">4 min remaining</span></div>
+          <div class="panel-actions">
+            <button class="btn btn-secondary">Back to queue</button>
+            <button class="btn btn-primary">✅ Mark ready</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="state-note">Mark ready moves the ticket to the "Ready" column here and fires the waiter notification (staff-waiter.html, screen 1).</p>
+  </section>
+</body>
+</html>

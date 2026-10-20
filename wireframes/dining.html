@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Dining Wireframes</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1>Dining — Guest Tablet Flow</h1>
+    <p>Pilot flow. Global nav bar + avatar/subtitle dock stay fixed across every screen — only the content area changes.</p>
+  </div>
+  <nav class="flow-nav">
+    <a href="index.html">All flows</a>
+    <a href="dining.html" class="current">Dining</a>
+    <a href="housekeeping.html">Housekeeping</a>
+    <a href="checkout-extension.html">Checkout extension</a>
+    <a href="valet.html">Valet</a>
+    <a href="staff-kitchen.html">Staff: Kitchen</a>
+    <a href="admin-dashboard.html">Admin Dashboard</a>
+  </nav>
+
+  <!-- Screen 1: Menu browse -->
+  <section class="screen-block">
+    <h2>1. Menu browse</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <div class="tabs-row">
+          <span class="tab-chip active">Starters</span>
+          <span class="tab-chip">Mains</span>
+          <span class="tab-chip">Drinks</span>
+          <span class="tab-chip">Desserts</span>
+          <span class="cart-badge">🛒 Cart (2)</span>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="photo">photo</div>
+            <div class="name">Burger</div>
+            <div class="row"><span>$12.00</span><span class="add-btn">+</span></div>
+          </div>
+          <div class="card">
+            <div class="photo">photo</div>
+            <div class="name">Pasta</div>
+            <div class="row"><span>$14.00</span><span class="add-btn">+</span></div>
+          </div>
+          <div class="card">
+            <div class="photo">photo</div>
+            <div class="name">Salad</div>
+            <div class="allergen">⚠ contains nuts</div>
+            <div class="row"><span>$10.00</span><span class="add-btn">+</span></div>
+          </div>
+          <div class="card">
+            <div class="photo">photo</div>
+            <div class="name">Soup</div>
+            <div class="row"><span>$8.00</span><span class="add-btn">+</span></div>
+          </div>
+        </div>
+        <p class="helper-text">Voice equivalent: "add a burger" has the same effect as tapping [+]. Allergen tag always visible on card, not hidden behind a tap.</p>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Here's our dining menu — what sounds good?"</span>
+      </div>
+    </div>
+    <p class="state-note">Empty/loading state: same frame, content area replaced with centered spinner, or "Menu unavailable, try again" + retry button.</p>
+  </section>
+
+  <!-- Screen 2: Order summary / confirm -->
+  <section class="screen-block">
+    <h2>2. Order summary → confirm (chargeable)</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Your order</h3>
+        <div class="order-list">
+          <div class="order-row"><span><span class="qty">1x</span> Burger (no onion)</span><span>$12.00</span></div>
+          <div class="order-row"><span><span class="qty">1x</span> Coke</span><span>$3.00</span></div>
+        </div>
+        <hr class="divider">
+        <div class="totals-row"><span>Subtotal</span><span>$15.00</span></div>
+        <div class="totals-row"><span>Service + VAT</span><span>$2.25</span></div>
+        <div class="totals-row total"><span>Total</span><span>$17.25</span></div>
+        <div class="btn-row">
+          <button class="btn btn-secondary">✎ Edit order</button>
+          <button class="btn btn-primary">✅ Confirm &amp; send</button>
+        </div>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"That's $17.25 total — shall I send it?"</span>
+      </div>
+    </div>
+    <p class="state-note">confirmation_token generated on entry to this screen. Submit-error/retry state: same layout, banner above totals "Couldn't send — tap to retry" — single retry button, no duplicate submit (idempotency).</p>
+  </section>
+
+  <!-- Screen 3: Status track -->
+  <section class="screen-block">
+    <h2>3. Status track (Accepted → Preparing → Ready → Delivered)</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Order #4821</h3>
+        <div class="stepper">
+          <div class="step-circle done"></div>
+          <div class="step-connector done"></div>
+          <div class="step-circle done"></div>
+          <div class="step-connector"></div>
+          <div class="step-circle"></div>
+          <div class="step-connector"></div>
+          <div class="step-circle"></div>
+        </div>
+        <div class="step-labels">
+          <span>Accepted</span><span>Preparing</span><span>Ready</span><span>Delivered</span>
+        </div>
+        <p class="helper-text">Estimated: ready in ~15 min</p>
+        <div class="btn-row center">
+          <button class="btn btn-secondary">Cancel order</button>
+        </div>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Your order's being prepared now."</span>
+      </div>
+    </div>
+    <p class="state-note">One screen, stepper updates in place for all four states. Cancel only enabled before "Preparing". Each step change is announced by the avatar, not just shown silently.</p>
+  </section>
+</body>
+</html>

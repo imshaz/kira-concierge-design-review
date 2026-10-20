@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Concierge — Housekeeping Wireframes</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1>Housekeeping — Guest Tablet Flow</h1>
+    <p>Pilot flow. Lighter weight than dining — no payment, so no total/confirmation_token step.</p>
+  </div>
+  <nav class="flow-nav">
+    <a href="index.html">All flows</a>
+    <a href="dining.html">Dining</a>
+    <a href="housekeeping.html" class="current">Housekeeping</a>
+    <a href="checkout-extension.html">Checkout extension</a>
+    <a href="valet.html">Valet</a>
+    <a href="staff-housekeeping.html">Staff: Housekeeping</a>
+    <a href="admin-dashboard.html">Admin Dashboard</a>
+  </nav>
+
+  <!-- Screen 1: Request + confirm -->
+  <section class="screen-block">
+    <h2>1. Request + confirm</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Housekeeping request</h3>
+        <div class="quick-grid">
+          <span class="quick-btn">Extra towels</span>
+          <span class="quick-btn">Extra pillows</span>
+          <span class="quick-btn">Clean room</span>
+          <span class="quick-btn">Toiletries</span>
+          <span class="quick-btn">Other…</span>
+        </div>
+        <div class="field-row">
+          <span class="label">You asked for</span>
+          <span class="value">2 extra towels</span>
+        </div>
+        <div class="btn-row center">
+          <button class="btn btn-primary">✅ Confirm request</button>
+        </div>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Want me to send that to housekeeping?"</span>
+      </div>
+    </div>
+    <p class="state-note">Single confirm, no price/total section — this request path is intentionally lighter than dining's chargeable confirm.</p>
+  </section>
+
+  <!-- Screen 2: Status track -->
+  <section class="screen-block">
+    <h2>2. Status track (Received → In progress → Done)</h2>
+    <div class="tablet-frame">
+      <div class="nav-bar">
+        <div class="nav-left">
+          <span class="nav-chip">Room 412</span>
+          <span class="nav-chip">EN ▾</span>
+          <span>🔈 mute</span>
+          <span>Aa+ Aa-</span>
+        </div>
+        <div class="nav-right"><span class="nav-emergency">Help / Emergency</span></div>
+      </div>
+      <div class="content-area">
+        <h3 style="margin:0 0 4px;font-size:15px;">Request #HK-203 — 2 extra towels</h3>
+        <div class="stepper">
+          <div class="step-circle done"></div>
+          <div class="step-connector done"></div>
+          <div class="step-circle"></div>
+          <div class="step-connector"></div>
+          <div class="step-circle"></div>
+        </div>
+        <div class="step-labels">
+          <span>Received</span><span>In progress</span><span>Done</span>
+        </div>
+        <p class="helper-text">Expected within: 20 min</p>
+      </div>
+      <div class="avatar-dock">
+        <div class="avatar-circle"></div>
+        <span class="subtitle">"Housekeeping's on it — 20 minutes or so."</span>
+      </div>
+    </div>
+    <p class="state-note">Same stepper component as dining/valet/checkout, three steps instead of four. SLA/ETA shown as plain text, not a countdown timer (avoid alarming the guest).</p>
+    <p class="state-note">Fulfilled on the staff side via <a href="staff-housekeeping.html">staff-housekeeping.html</a> — same Kanban pattern as the kitchen KDS.</p>
+  </section>
+</body>
+</html>

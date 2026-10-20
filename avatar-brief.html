@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Avatar — Design Brief</title>
+<link rel="stylesheet" href="mockups/tokens.css">
+<style>
+  .brief { max-width: 720px; margin: 0 auto; padding: var(--sp-6) var(--sp-5) var(--sp-7); }
+  .brief h1 { font-size: var(--fs-h1); margin-bottom: var(--sp-2); }
+  .brief h2 { font-size: var(--fs-h2); margin: var(--sp-6) 0 var(--sp-3); }
+  .brief p { margin-bottom: var(--sp-3); }
+  .brief table { width: 100%; border-collapse: collapse; margin-bottom: var(--sp-4); font-size: var(--fs-small); }
+  .brief th, .brief td { text-align: left; padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid rgba(36,31,22,.1); vertical-align: top; }
+  .brief th { color: var(--muted-on-sand); font-weight: 600; }
+  .brief ul { padding-left: 1.2em; }
+  .brief li { margin-bottom: var(--sp-2); }
+  .brief .intro { color: var(--muted-on-sand); }
+  .back { font-size: var(--fs-small); }
+  .back a { color: var(--lagoon); }
+</style>
+</head>
+<body>
+  <div class="brief">
+    <p class="back"><a href="index.html">&larr; Back to overview</a></p>
+    <h1>Kira Avatar — Design Brief</h1>
+    <p class="intro">Defines what the avatar needs to express and why, ahead of final art/animation production. See the Lantern concept in motion on the dining mockup.</p>
+
+    <h2>1. What the avatar needs to express</h2>
+    <p>Five states, design and animate as one continuous character, not five disconnected poses:</p>
+    <table>
+      <tr><th>State</th><th>Guest-facing meaning</th><th>Design note</th></tr>
+      <tr><td><strong>Idle</strong></td><td>Ambient, waiting</td><td>Subtle looping motion (breathing/blink-style), not static — must never look frozen/broken</td></tr>
+      <tr><td><strong>Wake</strong></td><td>"I'm listening to you now"</td><td>Clear, fast perk-up — the moment a guest decides the tablet heard them</td></tr>
+      <tr><td><strong>Listening</strong></td><td>Actively hearing speech</td><td>Must read clearly even with a live subtitle overlapping it</td></tr>
+      <tr><td><strong>Thinking</strong></td><td>Processing (covers the response-latency window)</td><td>Must not look frozen — the state most likely to get a second tap from an impatient guest</td></tr>
+      <tr><td><strong>Speaking</strong></td><td>Delivering a response</td><td>Lip-sync not required for pilot — a simpler talk-cycle is fine as long as it's visibly distinct from idle</td></tr>
+    </table>
+    <p>Every state must also hold up with reduced text size on, and with a subtitle bar present — design with the subtitle area reserved, not added after.</p>
+
+    <h2>2. Visual direction — open, not yet decided</h2>
+    <p>No house style exists yet. Two directions to choose between:</p>
+    <ul>
+      <li><strong>Abstract/orb-like</strong> (glowing shape, light, particles) — hides the lack of a "face," ages well, easiest to animate smoothly, lowest risk of looking uncanny in any state.</li>
+      <li><strong>Character-like</strong> (stylized face or creature, non-photoreal) — more memorable/brandable, but much higher design and animation cost to get all five states + transitions reading well.</li>
+    </ul>
+    <p>The dining mockup explores an abstract direction — <strong>"the Lantern"</strong> — drawing on the hanging-lantern motif found in Gulf hospitality interiors rather than generic sci-fi-assistant iconography. Recommend presenting both directions as quick concepts before committing; this is a branding decision as much as a UI one.</p>
+
+    <h2>3. Technical constraint the design must respect</h2>
+    <p>The on-prem box's GPU is already running the AI model and speech processing. A heavy real-time 3D render competes for that same hardware and adds latency on top of an already-tight response-time budget.</p>
+    <p><strong>Recommendation: design as a 2D rigged/vector character (Rive or Lottie export), not a 3D model.</strong></p>
+    <ul>
+      <li>Build it as layered vector art with a skeletal rig, not a pre-rendered video loop — so state transitions can blend smoothly rather than hard-cutting.</li>
+      <li>Lip-sync to TTS is out of scope for pilot — design a generic "talking" motion rather than phoneme-accurate viseme animation.</li>
+      <li>Deliver source files (Rive <code>.riv</code> or AE/Lottie <code>.json</code>) sized for a tablet-resolution canvas, not print/marketing resolution.</li>
+    </ul>
+
+    <h2>4. Deliverables expected from this brief</h2>
+    <ul>
+      <li>Two quick concept directions (abstract vs. character) — low-fidelity, for a go/no-go decision.</li>
+      <li>Once direction is picked: the five states above as a rigged animation, exported Rive/Lottie.</li>
+      <li>A static "hero frame" per state, for dropping into the hi-fi mockups.</li>
+    </ul>
+
+    <h2>5. Open question</h2>
+    <p>Does the client have an existing brand mark/color palette the avatar should align to, or is Kira's visual identity being created fresh alongside this?</p>
+  </div>
+</body>
+</html>
